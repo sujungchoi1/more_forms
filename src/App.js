@@ -1,23 +1,23 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
 
+import UserForm from './components/UserForm'
+
 function App() {
+  // can access current state via 'state' and then change the state via 'setState' by calling 'useState'
+  const [ state, setState ] = useState({
+    // default values (object)
+    firstName: "",
+    firstnameError: "",
+    lastName: "",
+    email: "",
+    password: "",
+    confirmPassword: ""
+  });
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <UserForm input={state} setInput={setState} />
+      
     </div>
   );
 }
